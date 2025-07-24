@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexusGear - Premium Gaming Equipment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>   
+      .gradient-text {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      }
+      .dark .gradient-text {
+        background-image: linear-gradient(90deg, #60a5fa, #a78bfa);
+      }
+      .parallax {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      @media (max-width: 768px) {
+        .parallax {
+          background-attachment: scroll;
+        }
+      }
+      .menu-item {
+        position: relative;
+      }
+      .menu-item:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: currentColor;
+        transition: width 0.3s ease;
+      }
+      .menu-item:hover:after {
+        width: 100%;
+      }
+      .cart-count {
+        top: -8px;
+        right: -8px;
+        font-size: 0.7rem;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .dark .product-card:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25),
+          0 10px 10px -5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300"
+  >
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md z-50 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+          <div class="flex items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">NexusGear</a>
+          </div>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#home" class="menu-item">Home</a>
+            <a href="#shop" class="menu-item">Shop</a>
+            <a href="#bestsellers" class="menu-item">Bestsellers</a>
+            <a href="#new" class="menu-item">New Arrivals</a>
+            <a href="#reviews" class="menu-item">Reviews</a>
+            <a href="#brands" class="menu-item">Brands</a>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <button
+              id="theme-toggle"
+              class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+            >
+              <i class="fas fa-moon dark:hidden"></i>
+              <i class="fas fa-sun hidden dark:inline"></i>
+            </button>
+            <button
+              class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 relative"
+            >
+              <i class="fas fa-shopping-cart"></i>
+              <span
+                class="cart-count absolute bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
+                >3</span
+              >
+            </button>
+            <button
+              id="mobile-menu-button"
+              class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+            >
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-white dark:bg-gray-800 shadow-lg"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+          <a href="#home" class="menu-item px-3 py-2 rounded-md">Home</a>
+          <a href="#shop" class="menu-item px-3 py-2 rounded-md">Shop</a>
+          <a href="#bestsellers" class="menu-item px-3 py-2 rounded-md"
+            >Bestsellers</a
+          >
+          <a href="#new" class="menu-item px-3 py-2 rounded-md">New Arrivals</a>
+          <a href="#reviews" class="menu-item px-3 py-2 rounded-md">Reviews</a>
+          <a href="#brands" class="menu-item px-3 py-2 rounded-md">Brands</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="pt-24 pb-16 md:pt-32 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <span class="gradient-text">Built for Gamers</span><br />
+            <span class="text-gray-700 dark:text-gray-300">By Gamers</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8">
+            Premium gaming gear designed to give you the competitive edge. Join
+            thousands of pro gamers who trust our equipment.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#shop"
+              class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
+            >
+              Shop Now
+            </a>
+            <a
+              href="#club"
+              class="px-6 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-full font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
+            >
+              Join the Club
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div
+            class="absolute -top-8 -left-8 w-32 h-32 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 dark:opacity-30 animate-blob"
+          ></div>
+          <div
+            class="absolute -bottom-8 -right-8 w-32 h-32 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 dark:opacity-30 animate-blob animation-delay-2000"
+          ></div>
+          <div
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 dark:opacity-30 animate-blob animation-delay-4000"
+          ></div>
+          <img
+            src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=998&q=80"
+            alt="Gaming Setup"
+            class="relative rounded-2xl shadow-2xl w-full h-auto border-8 border-white dark:border-gray-800"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop by Category -->
+    <section id="shop" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Shop by Category</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Find exactly what you need with our carefully curated gaming gear
+          categories
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <a
+          href="#"
+          class="category-card group relative overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Keyboards"
+            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4"
+          >
+            <h3 class="text-white text-lg font-semibold">Keyboards</h3>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="category-card group relative overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Mice"
+            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4"
+          >
+            <h3 class="text-white text-lg font-semibold">Gaming Mice</h3>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="category-card group relative overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80"
+            alt="Headsets"
+            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4"
+          >
+            <h3 class="text-white text-lg font-semibold">Headsets</h3>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="category-card group relative overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80"
+            alt="Monitors"
+            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4"
+          >
+            <h3 class="text-white text-lg font-semibold">Monitors</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Bestsellers -->
+    <section
+      id="bestsellers"
+      class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-100 dark:bg-gray-800 rounded-2xl"
+    >
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Bestsellers</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          The gear that pro gamers swear by
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Product 1 -->
+        <div
+          class="product-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300"
+        >
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+              alt="Mechanical Keyboard"
+              class="w-full h-48 object-cover"
+            />
+            <div
+              class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+            >
+              BESTSELLER
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">
+              Vortex Pro Mechanical Keyboard
+            </h3>
+            <div class="flex items-center mb-2">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-gray-600 dark:text-gray-400 text-sm ml-2"
+                >(428)</span
+              >
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-lg">$129.99</span>
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full text-sm transition-colors duration-300"
+              >
+                <i class="fas fa-cart-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div
+          class="product-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300"
+        >
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1527814050087-3793815479db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1028&q=80"
+              alt="Gaming Mouse"
+              class="w-full h-48 object-cover"
+            />
+            <div
+              class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+            >
+              BESTSELLER
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Razer Viper Ultimate</h3>
+            <div class="flex items-center mb-2">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="text-gray-600 dark:text-gray-400 text-sm ml-2"
+                >(367)</span
+              >
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-lg">$79.99</span>
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full text-sm transition-colors duration-300"
+              >
+                <i class="fas fa-cart-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div
+          class="product-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300"
+        >
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1593784991095-a205069470b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Gaming Headset"
+              class="w-full h-48 object-cover"
+            />
+            <div
+              class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+            >
+              BESTSELLER
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">SteelSeries Arctis Pro</h3>
+            <div class="flex items-center mb-2">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="text-gray-600 dark:text-gray-400 text-sm ml-2"
+                >(512)</span
+              >
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-lg">$149.99</span>
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full text-sm transition-colors duration-300"
+              >
+                <i class="fas fa-cart-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div
+          class="product-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300"
+        >
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80"
+              alt="Gaming Chair"
+              class="w-full h-48 object-cover"
+            />
+            <div
+              class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+            >
+              BESTSELLER
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Titan Pro Gaming Chair</h3>
+            <div class="flex items-center mb-2">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-gray-600 dark:text-gray-400 text-sm ml-2"
+                >(289)</span
+              >
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-lg">$249.99</span>
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full text-sm transition-colors duration-300"
+              >
+                <i class="fas fa-cart-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a
+          href="#"
+          class="inline-block px-6 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-full font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+        >
+          View All Bestsellers
+        </a>
+      </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section id="new" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">New Arrivals</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Fresh gear just dropped. Be the first to experience the latest in
+          gaming technology.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Product 1 -->
+        <div
+          class="product-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300"
+        >
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="RGB Mousepad"
+              class="w-full h-64 object-cover"
+            />
+            <div
+              class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+            >
+              NEW
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Nexus Glow RGB Mousepad</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">
+              Experience 16.8 million colors with ultra-smooth tracking surface
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-lg">$49.99</span>
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full text-sm transition-colors duration-300"
+              >
+                <i class="fas fa-cart-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div
+          class="product-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300"
+        >
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Wireless Earbuds"
+              class="w-full h-64 object-cover"
+            />
+            <div
+              class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+            >
+              NEW
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">
+              HyperX Cloud Wireless Earbuds
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">
+              Pro-grade wireless earbuds with 30ms ultra-low latency
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-lg">$89.99</span>
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full text-sm transition-colors duration-300"
+              >
+                <i class="fas fa-cart-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div
+          class="product-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300"
+        >
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Vertical Mouse"
+              class="w-full h-64 object-cover"
+            />
+            <div
+              class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+            >
+              NEW
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Ergo Pro Vertical Mouse</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">
+              Ergonomic design reduces wrist strain during long gaming sessions
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-lg">$59.99</span>
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full text-sm transition-colors duration-300"
+              >
+                <i class="fas fa-cart-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gear Reviews -->
+    <section
+      id="reviews"
+      class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-100 dark:bg-gray-800 rounded-2xl"
+    >
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Gear Reviews</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Hear what the pros are saying about our gear
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Review 1 -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <img
+              src="https://randomuser.me/api/portraits/women/32.jpg"
+              alt="Reviewer"
+              class="w-12 h-12 rounded-full mr-4"
+            />
+            <div>
+              <h4 class="font-bold">Sarah Johnson</h4>
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">
+            "The Vortex Pro keyboard has completely transformed my gaming
+            experience. The tactile feedback is perfect, and the RGB lighting is
+            stunning. Worth every penny!"
+          </p>
+          <div class="text-sm text-gray-500 dark:text-gray-400">
+            Posted 2 weeks ago
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <img
+              src="https://randomuser.me/api/portraits/men/75.jpg"
+              alt="Reviewer"
+              class="w-12 h-12 rounded-full mr-4"
+            />
+            <div>
+              <h4 class="font-bold">Michael Chen</h4>
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">
+            "I've been using the Razer Viper Ultimate for my esports
+            tournaments. The precision is unmatched, and the wireless freedom
+            gives me that extra edge in competitive play."
+          </p>
+          <div class="text-sm text-gray-500 dark:text-gray-400">
+            Posted 1 month ago
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <img
+              src="https://randomuser.me/api/portraits/women/68.jpg"
+              alt="Reviewer"
+              class="w-12 h-12 rounded-full mr-4"
+            />
+            <div>
+              <h4 class="font-bold">Jessica Martinez</h4>
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">
+            "The SteelSeries Arctis Pro headset has incredible sound quality.
+            The noise cancellation is so good my roommate can vacuum and I don't
+            hear a thing during raids!"
+          </p>
+          <div class="text-sm text-gray-500 dark:text-gray-400">
+            Posted 3 weeks ago
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a
+          href="#"
+          class="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
+        >
+          Read More Reviews
+        </a>
+      </div>
+    </section>
+
+    <!-- Brand Partnerships -->
+    <section id="brands" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Brand Partners</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          We partner with the best in the industry to bring you premium gaming
+          gear
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+        <div class="flex justify-center">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Razer_snake_logo.svg/1200px-Razer_snake_logo.svg.png"
+            alt="Razer"
+            class="h-12 opacity-70 hover:opacity-100 transition-opacity duration-300 dark:invert"
+          />
+        </div>
+        <div class="flex justify-center">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/SteelSeries_logo.svg/2560px-SteelSeries_logo.svg.png"
+            alt="SteelSeries"
+            class="h-8 opacity-70 hover:opacity-100 transition-opacity duration-300 dark:invert"
+          />
+        </div>
+        <div class="flex justify-center">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/HyperX_logo.svg/2560px-HyperX_logo.svg.png"
+            alt="HyperX"
+            class="h-8 opacity-70 hover:opacity-100 transition-opacity duration-300 dark:invert"
+          />
+        </div>
+        <div class="flex justify-center">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Logitech_logo.svg/2560px-Logitech_logo.svg.png"
+            alt="Logitech"
+            class="h-8 opacity-70 hover:opacity-100 transition-opacity duration-300 dark:invert"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Join the Club -->
+    <section
+      id="club"
+      class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl text-white"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Join the NexusGear Club
+          </h2>
+          <p class="text-blue-100 mb-8">
+            Get exclusive access to member-only deals, early product releases,
+            and gaming tips from the pros. Plus, earn points with every purchase
+            that you can redeem for discounts.
+          </p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle mr-3 mt-1 text-blue-200"></i>
+              <span>10% off your first order</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle mr-3 mt-1 text-blue-200"></i>
+              <span>Exclusive member-only deals</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle mr-3 mt-1 text-blue-200"></i>
+              <span>Early access to new products</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle mr-3 mt-1 text-blue-200"></i>
+              <span>Monthly gaming gear giveaways</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+          <h3 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
+            Sign Up Now
+          </h3>
+          <form class="space-y-4">
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+              />
+            </div>
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+              />
+            </div>
+            <div>
+              <label
+                for="password"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                >Password</label
+              >
+              <input
+                type="password"
+                id="password"
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+              />
+            </div>
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                id="terms"
+                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 dark:border-gray-600 rounded"
+              />
+              <label
+                for="terms"
+                class="ml-2 block text-sm text-gray-700 dark:text-gray-300"
+              >
+                I agree to the
+                <a href="#" class="text-blue-500 hover:text-blue-700"
+                  >Terms & Conditions</a
+                >
+              </label>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-4 rounded-lg font-medium hover:shadow-lg transition-all duration-300"
+            >
+              Join the Club
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div
+        class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-8 md:p-12 text-center"
+      >
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Stay Updated</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
+          Subscribe to our newsletter for the latest gaming gear news, exclusive
+          deals, and pro gaming tips.
+        </p>
+        <form class="max-w-md mx-auto flex">
+          <input
+            type="email"
+            placeholder="Your email address"
+            class="flex-grow px-4 py-3 rounded-l-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+          />
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-r-lg font-medium transition-colors duration-300"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 pt-16 pb-8 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <div>
+            <h3 class="text-white text-lg font-semibold mb-4">NexusGear</h3>
+            <p class="mb-4">
+              Premium gaming gear for competitive and casual gamers alike. Built
+              for performance, designed for comfort.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                <i class="fab fa-discord"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-white text-lg font-semibold mb-4">Shop</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >Keyboards</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >Mice</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >Headsets</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >Monitors</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >Chairs</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-white text-lg font-semibold mb-4">Support</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >FAQs</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >Shipping</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >Returns</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >Warranty</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-white text-lg font-semibold mb-4">Legal</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >Cookie Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors duration-300"
+                  >GDPR</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p>© 2023 NexusGear. All rights reserved.</p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/196/196578.png"
+              alt="Visa"
+              class="h-8"
+            />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/196/196561.png"
+              alt="Mastercard"
+              class="h-8"
+            />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/196/196566.png"
+              alt="American Express"
+              class="h-8"
+            />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/825/825454.png"
+              alt="PayPal"
+              class="h-8"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Dark/light mode toggle
+      $(document).ready(function () {
+        // Check for saved user preference or use system preference
+        if (
+          localStorage.getItem("color-theme") === "dark" ||
+          (!("color-theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          $("html").addClass("dark");
+        } else {
+          $("html").removeClass("dark");
+        }
+
+        // Toggle button click handler
+        $("#theme-toggle").click(function () {
+          $("html").toggleClass("dark");
+
+          // Save user preference
+          if ($("html").hasClass("dark")) {
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            localStorage.setItem("color-theme", "light");
+          }
+        });
+
+        // Mobile menu toggle
+        $("#mobile-menu-button").click(function () {
+          $("#mobile-menu").slideToggle(200);
+        });
+
+        // Smooth scrolling for anchor links
+        $('a[href^="#"]').on("click", function (event) {
+          event.preventDefault();
+          const target = $(this.getAttribute("href"));
+          if (target.length) {
+            $("html, body")
+              .stop()
+              .animate(
+                {
+                  scrollTop: target.offset().top - 80,
+                },
+                1000
+              );
+          }
+
+          // Close mobile menu if open
+          $("#mobile-menu").slideUp(200);
+        });
+
+        // Add animation class when elements come into view
+        function animateOnScroll() {
+          $(".product-card, .category-card").each(function () {
+            const elementPosition = $(this).offset().top;
+            const scrollPosition = $(window).scrollTop() + $(window).height();
+
+            if (elementPosition < scrollPosition - 100) {
+              $(this).addClass("animate-fadeInUp");
+            }
+          });
+        }
+
+        // Run on load and scroll
+        $(window).on("load scroll", animateOnScroll);
+      });
+    </script>
+  </body>
+</html>
